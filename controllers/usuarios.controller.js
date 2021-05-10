@@ -70,10 +70,12 @@ const putUsuarios = async (req, res) => {
 const deleteUsuarios = async (req, res) => {
 
     const {id} = req.params; 
+    const usuario = req.usuario;
     // const userDelete = await Usuario.findByIdAndDelete( id );
     const userDelete = await Usuario.findByIdAndUpdate( id, { estado : false} );
     res.json({
-        userDelete
+        userDelete,
+        userPetition: usuario
     })
 }
 
